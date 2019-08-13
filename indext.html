@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Poem Generator</title>
+  <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
+  <link rel='stylesheet' type='text/css' href="style.css">
+</head>
+<body>
+  <div class="mainImageBG">
+    <div class="ptext">
+      <span class="border">
+        Sam's Poem Generator
+      </span>
+    </div>
+  </div>
+
+  <section class="section section-dark">
+    <p>
+      <span>This is your personal Marchov Chain. A tool that you can use to gernerate ideas for poerty when your are stuck.</span>
+    </p>
+  </section>
+
+  <div class="image3" id="section2">
+      <div class='ptext'>
+        <span class="border trans">Please Enter poem:</span>
+      </div>
+  </div>  
+  
+  <section class="section section-light" id="section1">
+    <textarea id="userInputText" cols=90 rows=20></textarea>
+    <!-- Add some prestored text by a specific poet/artist that appears a drop down: -->
+    <select>
+      <option value="">Drake</option>
+      <option value="">Kanye </option>
+      <option value="">chance</option>
+      <option value="">kendrick</option>
+    </select>
+    <!-- The submit button stores the text in text varible for the markov chain to work: -->
+    <button class="button" type="submit" onClick="submitText()"><span>Submit</span></button>
+    <!-- This rest buton clears the text area resets text varaibale to empty strings -->
+    <button class="button" type="submit" onClick="RestText()"><span>Reset</span></button>
+  </section>
+
+  <div class="image2" id="section2">
+    <div class='ptext'>
+      <span class="border trans">Here is new poem:</span>
+    </div>
+  </div>  
+
+  <section class="section section-dark">
+    <p id="newPoem"></p>
+  </section>
+
+  <div class="image4" id="section2">
+      <div class='ptext'>
+      </div>
+  </div>  
+
+  <script src="main.js"></script>
+</body>
+</html>

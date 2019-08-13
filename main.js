@@ -1,0 +1,107 @@
+// ------TO-DO List: 
+
+// []write a function that set text varaible to preselect dropdown menu text options: 
+
+// write a function that accepts a string and returns an array of the words in the string, uniformly formatted with no numbers or punctuation:
+
+// let text = "Ever since I left the city, you, you, you You and me we just don't get along";
+let text = "You may write me down in history With your bitter, twisted lies, You may trod me in the very dirt But still, like dust, I'll rise. Does my sassiness upset you? Why are you beset with gloom? ’Cause I walk like I've got oil wells Pumping in my living room. Just like moons and like suns, With the certainty of tides, Just like hopes springing high, Still I'll rise. Did you want to see me broken? Bowed head and lowered eyes? Shoulders falling down like tear drops, Weakened by my soulful cries?"
+let newPoem = document.getElementById('newPoem')
+let newPoemTxt = '';
+
+// Create a function that prints new poem on p tag with id "newPoem:
+const submitText = () => {
+// envoke randomNum lines 
+  randomNumLines(text)
+// get id and print text 
+  newPoem.innerHTML = newPoemTxt;
+}
+
+
+const parseText = (str) => {
+  // use the replace method with regex to eliminate commas that appear in some strings in the array:
+  let arr = str.toLowerCase().replace(/[^a-z\s]/ig, '').split(' ');
+  return arr;
+}
+
+// This is similar to Frequency Analysis 
+const generateWordPairs = (arr) => {
+  const wordPairs = {};
+
+  for (let i = 0; i < arr.length - 1; i++){
+    let element = arr[i];
+    let nextWord = arr[i + 1];
+    if (wordPairs[element]) {
+        wordPairs[element].push(nextWord);
+    }
+    else {
+        wordPairs[element] = [nextWord];
+    }
+  }
+
+  return wordPairs;
+}
+
+function random(arr) {  
+  let idx = Math.floor(arr.length * Math.random());
+  return arr[idx];
+}
+
+const writeLine = (corpus, textLength) => {
+  // store each word in text in arr
+  let corpusArr = parseText(corpus);
+  // store an object with word pairs
+  let wordPairs = generateWordPairs(corpusArr);
+  // select random word with random number for index
+  let randomWord = random(corpusArr);
+  // create a new arr with radomWord as the first element
+  let newTextArr = [randomWord]
+
+  while(wordPairs[randomWord]) {
+    let next = wordPairs[randomWord];
+    randomWord = random(next);
+    newTextArr.push(randomWord);
+
+    if(newTextArr.length > textLength) {
+      break;
+    }
+  }
+
+  let addPunctuation = randomPunctuation(newTextArr)
+  return addPunctuation.join(' ');
+}
+
+// Add new punction randomly: 
+const randomPunctuation = (arr) => {
+  let punctuation = [ '. ', '! ', '? '];  
+  let random = Math.floor(Math.random() * 2) + 1;
+  arr.push(punctuation[random])
+  // join together the last two elements in the arr :
+  let concat = arr[arr.length - 2] + arr[arr.length - 1];
+  arr.pop();
+  arr.pop();
+  arr.push(concat);
+
+  console.log(arr);
+  return arr;
+}
+
+const writeLineHelper = (numlines, corpus) => {
+// loop to the number of lines:
+  for (let i  = 0; i < numlines; i++){
+    // radomly determine how long each line will be:
+    let randomTextLength = Math.floor(Math.random() * 10) + 1; 
+    // add lines to newPoemTxt variable: 
+    newPoemTxt += '' + writeLine(corpus, randomTextLength);
+  }
+}
+
+// pass a random number (within a reasonable range) into writeLine:
+const randomNumLines = (corpus) => { 
+  let passText = corpus;
+  // create random number: 
+  let randomNum = Math.floor(Math.random() * 5) + 1; 
+  // pass random number and text to writeLineHelper function: 
+  return writeLineHelper(randomNum, passText);
+} 
+
