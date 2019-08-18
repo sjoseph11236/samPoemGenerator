@@ -9,7 +9,10 @@ let text = "You may write me down in history With your bitter, twisted lies, You
 let newPoem = document.getElementById('newPoem')
 let newPoemTxt = '';
 
+// ***** STARTS HERE ********
+
 // Create a function that prints new poem on p tag with id "newPoem:
+
 const submitText = () => {
 // envoke randomNum lines 
   randomNumLines(text)
@@ -24,7 +27,7 @@ const parseText = (str) => {
   return arr;
 }
 
-// This is similar to Frequency Analysis 
+
 const generateWordPairs = (arr) => {
   const wordPairs = {};
 
@@ -67,8 +70,19 @@ const writeLine = (corpus, textLength) => {
     }
   }
 
-  let addPunctuation = randomPunctuation(newTextArr)
-  return addPunctuation.join(' ');
+  let addPunctuation = randomPunctuation(newTextArr);
+  let capitalizeFirst = capitalize(addPunctuation)
+  return capitalizeFirst.join(' ');
+}
+const capitalize = (arr) => { 
+  const arrCopy = arr.slice();
+  const firstWord = arrCopy[0];
+  const firstLetter = firstWord[0].toUpperCase();
+  const removeFirstLetter = firstWord.slice(1 , (firstWord.length));
+  const addFirstLetter = firstLetter + removeFirstLetter;
+  arrCopy[0] = addFirstLetter;
+
+  return arrCopy; 
 }
 
 // Add new punction randomly: 
@@ -82,9 +96,9 @@ const randomPunctuation = (arr) => {
   arr.pop();
   arr.push(concat);
 
-  console.log(arr);
   return arr;
 }
+
 
 const writeLineHelper = (numlines, corpus) => {
 // loop to the number of lines:
@@ -95,6 +109,7 @@ const writeLineHelper = (numlines, corpus) => {
     newPoemTxt += '' + writeLine(corpus, randomTextLength);
   }
 }
+
 
 // pass a random number (within a reasonable range) into writeLine:
 const randomNumLines = (corpus) => { 
