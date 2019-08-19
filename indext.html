@@ -32,16 +32,15 @@
   <section class="section section-light" id="section1">
     <textarea id="userInputText" cols=90 rows=20></textarea>
     <!-- Add some prestored text by a specific poet/artist that appears a drop down: -->
-    <select>
-      <option value="">Drake</option>
-      <option value="">Kanye </option>
-      <option value="">chance</option>
-      <option value="">kendrick</option>
+    <select id="textSelect">
+      <option value="null"></option>
+      <option value="Toni Morrison">Toni Morrison</option>
+      <option value="Maya Angelou">Maya Angelou</option>
     </select>
     <!-- The submit button stores the text in text varible for the markov chain to work: -->
-    <button class="button" type="submit" onClick="submitText()"><span>Submit</span></button>
+    <button class="button" type="submit" onClick="selectText()"><span>Submit</span></button>
     <!-- This rest buton clears the text area resets text varaibale to empty strings -->
-    <button class="button" type="submit" onClick="RestText()"><span>Reset</span></button>
+    <button class="button" type="submit" onClick="resetText()"><span>Reset</span></button>
   </section>
 
   <div class="image2" id="section2">

@@ -1,26 +1,46 @@
-
-// ------TO-DO List: 
-
-// []write a function that set text varaible to preselect dropdown menu text options: 
-
-// write a function that accepts a string and returns an array of the words in the string, uniformly formatted with no numbers or punctuation:
-
-// let text = "Ever since I left the city, you, you, you You and me we just don't get along";
 let text = "You may write me down in history With your bitter, twisted lies, You may trod me in the very dirt But still, like dust, I'll rise. Does my sassiness upset you? Why are you beset with gloom? ’Cause I walk like I've got oil wells Pumping in my living room. Just like moons and like suns, With the certainty of tides, Just like hopes springing high, Still I'll rise. Did you want to see me broken? Bowed head and lowered eyes? Shoulders falling down like tear drops, Weakened by my soulful cries?"
 let newPoem = document.getElementById('newPoem')
 let newPoemTxt = '';
 
 // ***** STARTS HERE ********
+//write a function that set text varaible to preselect dropdown menu text options: 
+let texts = { 
+  'Maya Angelou': "You may write me down in history With your bitter, twisted lies, You may trod me in the very dirt But still, like dust, I'll rise. Does my sassiness upset you? Why are you beset with gloom? ’Cause I walk like I've got oil wells Pumping in my living room. Just like moons and like suns, With the certainty of tides, Just like hopes springing high, Still I'll rise. Did you want to see me broken? Bowed head and lowered eyes? Shoulders falling down like tear drops, Weakened by my soulful cries?",
+  'Toni Morrison': 'Now these cool hands guide what they once caressed; Lips forget what they have kissed. My eyes now pool their light Better the summit to see.'
+}
 
-// Create a function that prints new poem on p tag with id "newPoem:
 
-const submitText = () => {
+const selectText = () => {
+  let text; 
+  let select = document.getElementById('textSelect').selectedIndex;
+  let option = document.getElementsByTagName('option')[select].value;
+  switch(option){
+    case 'Toni Morrison':
+      // console.log('toni')
+      text = texts["Toni Morrison"];
+      submitText(text);
+      break;
+    case 'Maya Angelou':
+      // console.log('maya')
+      text = texts["Maya Angelou"];
+      submitText(text);
+      break;
+  }
+}
+
+
+// sumbitText prints new poem on p tag with id "newPoem':
+const submitText = (text) => {
 // envoke randomNum lines 
   randomNumLines(text)
 // get id and print text 
   newPoem.innerHTML = newPoemTxt;
 }
 
+const resetText = () => {
+  // newPoem p tag to empty str:
+  newPoem.innerHTML = '';
+}
 
 const parseText = (str) => {
   // use the replace method with regex to eliminate commas that appear in some strings in the array:
