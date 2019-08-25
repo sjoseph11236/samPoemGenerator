@@ -1,5 +1,6 @@
-let text = "You may write me down in history With your bitter, twisted lies, You may trod me in the very dirt But still, like dust, I'll rise. Does my sassiness upset you? Why are you beset with gloom? ’Cause I walk like I've got oil wells Pumping in my living room. Just like moons and like suns, With the certainty of tides, Just like hopes springing high, Still I'll rise. Did you want to see me broken? Bowed head and lowered eyes? Shoulders falling down like tear drops, Weakened by my soulful cries?"
-let newPoem = document.getElementById('newPoem')
+// let text = "You may write me down in history With your bitter, twisted lies, You may trod me in the very dirt But still, like dust, I'll rise. Does my sassiness upset you? Why are you beset with gloom? ’Cause I walk like I've got oil wells Pumping in my living room. Just like moons and like suns, With the certainty of tides, Just like hopes springing high, Still I'll rise. Did you want to see me broken? Bowed head and lowered eyes? Shoulders falling down like tear drops, Weakened by my soulful cries?"
+const text_area = document.getElementById('userInputText')
+const newPoem = document.getElementById('newPoem')
 let newPoemTxt = '';
 
 // ***** STARTS HERE ********
@@ -8,12 +9,23 @@ let texts = {
   'Maya Angelou': "You may write me down in history With your bitter, twisted lies, You may trod me in the very dirt But still, like dust, I'll rise. Does my sassiness upset you? Why are you beset with gloom? ’Cause I walk like I've got oil wells Pumping in my living room. Just like moons and like suns, With the certainty of tides, Just like hopes springing high, Still I'll rise. Did you want to see me broken? Bowed head and lowered eyes? Shoulders falling down like tear drops, Weakened by my soulful cries?",
   'Toni Morrison': 'Now these cool hands guide what they once caressed; Lips forget what they have kissed. My eyes now pool their light Better the summit to see.'
 }
+const disableTextArea = function() {
+  let select = document.getElementById('textSelect').selectedIndex;
+  let option = document.getElementsByTagName('option')[select].value;
 
+  if(option !== "Your Text"){
+    text_area.disabled = true;
+  }
+  else{
+    text_area.disabled = false;
+  }
+}
 
 const selectText = () => {
   let text; 
   let select = document.getElementById('textSelect').selectedIndex;
   let option = document.getElementsByTagName('option')[select].value;
+  
   switch(option){
     case 'Toni Morrison':
       // console.log('toni')
@@ -25,6 +37,9 @@ const selectText = () => {
       text = texts["Maya Angelou"];
       submitText(text);
       break;
+    // case 'You Text':
+    //   text = 
+    //     break;
   }
 }
 
@@ -38,7 +53,7 @@ const submitText = (text) => {
 }
 
 const resetText = () => {
-  // newPoem p tag to empty str:
+  newPoemTxt = ''
   newPoem.innerHTML = '';
 }
 

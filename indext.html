@@ -30,13 +30,17 @@
   </div>  
   
   <section class="section section-light" id="section1">
-    <textarea id="userInputText" cols=90 rows=20></textarea>
+    <form onsubmit="selectText()">
+        <textarea id="userInputText" cols=90 rows=20 placeholder="Select 'Your Text' in drop down menu. Then, enter your text here"></textarea>
+    </form>
+ 
     <!-- Add some prestored text by a specific poet/artist that appears a drop down: -->
-    <select id="textSelect">
-      <option value="null"></option>
+    <select id="textSelect" onchange="disableTextArea()">
+      <option value="Your Text">Your Text</option>
       <option value="Toni Morrison">Toni Morrison</option>
       <option value="Maya Angelou">Maya Angelou</option>
     </select>
+    <!-- the textbox only appears if the user with diabaled proprty  -->
     <!-- The submit button stores the text in text varible for the markov chain to work: -->
     <button class="button" type="submit" onClick="selectText()"><span>Submit</span></button>
     <!-- This rest buton clears the text area resets text varaibale to empty strings -->
