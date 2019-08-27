@@ -44,12 +44,15 @@ textarea{
   padding: 50px 80px;
 }
 
+
+
 .section-light{
   background-color: rgb(233, 186, 129);
-  /* border-image:url(floral.jpg); */
+  background-repeat: no-repeat;
+  background-size: 100%;
   background-image: url(floral.jpg);
   opacity: 0.8;
-  color: #666;
+  color: white;
 }
 
 .section-dark{
@@ -77,10 +80,10 @@ textarea{
 .button{ 
 
 } */
-.section .result{
+.section .textBox{
   background:bisque;
   color:black;
-  padding: 10px; 
+  padding: 10px 100px; 
 }
 
 .ptext .border{
