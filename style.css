@@ -7,6 +7,9 @@ body,html{
   color:#666;
 }
 
+textarea{
+  background:bisque;
+}
 .mainImageBG,.image2,.image3,.image4{
   position: relative;
   opacity: 0.70;
@@ -42,13 +45,21 @@ body,html{
 }
 
 .section-light{
-  background-color: bisque;
+  background-color: rgb(233, 186, 129);
+  /* border-image:url(floral.jpg); */
+  background-image: url(floral.jpg);
+  opacity: 0.8;
   color: #666;
 }
 
 .section-dark{
   background-color: blanchedalmond;
-  color: #666;
+  background-image: url(floral.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  padding: 120px 80px;
+  opacity: 0.9;
+  color:whitesmoke;
 }
 
 .ptext{
@@ -60,11 +71,17 @@ body,html{
   font-size: 27px; 
   letter-spacing: 8px; 
   text-transform: uppercase;
+  border-color: #fff;
 }
 /* 
 .button{ 
 
 } */
+.section .result{
+  background:bisque;
+  color:black;
+  padding: 10px; 
+}
 
 .ptext .border{
   background-color: #111;

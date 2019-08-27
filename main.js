@@ -1,3 +1,4 @@
+/* eslint-disable default-case */
 // let text = "You may write me down in history With your bitter, twisted lies, You may trod me in the very dirt But still, like dust, I'll rise. Does my sassiness upset you? Why are you beset with gloom? ’Cause I walk like I've got oil wells Pumping in my living room. Just like moons and like suns, With the certainty of tides, Just like hopes springing high, Still I'll rise. Did you want to see me broken? Bowed head and lowered eyes? Shoulders falling down like tear drops, Weakened by my soulful cries?"
 const text_area = document.getElementById('userInputText')
 const newPoem = document.getElementById('newPoem')
@@ -7,7 +8,8 @@ let newPoemTxt = '';
 //write a function that set text varaible to preselect dropdown menu text options: 
 let texts = { 
   'Maya Angelou': "You may write me down in history With your bitter, twisted lies, You may trod me in the very dirt But still, like dust, I'll rise. Does my sassiness upset you? Why are you beset with gloom? ’Cause I walk like I've got oil wells Pumping in my living room. Just like moons and like suns, With the certainty of tides, Just like hopes springing high, Still I'll rise. Did you want to see me broken? Bowed head and lowered eyes? Shoulders falling down like tear drops, Weakened by my soulful cries?",
-  'Toni Morrison': 'Now these cool hands guide what they once caressed; Lips forget what they have kissed. My eyes now pool their light Better the summit to see.'
+  'Toni Morrison': 'Now these cool hands guide what they once caressed; Lips forget what they have kissed. My eyes now pool their light Better the summit to see.',
+  'rupi kaur': 'i want to apologize to all the women i have called pretty. before i’ve called them intelligent or brave.i am sorry i made it sound as though something as simple as what you’re born with is the most you have to be proud of when your spirit has crushed mountains from now on i will say things like, you are resilient or, you are extraordinary. not because i don’t think you’re pretty.but because you are so much more than that'
 }
 const disableTextArea = function() {
   let select = document.getElementById('textSelect').selectedIndex;
@@ -25,21 +27,28 @@ const selectText = () => {
   let text; 
   let select = document.getElementById('textSelect').selectedIndex;
   let option = document.getElementsByTagName('option')[select].value;
-  
+
   switch(option){
+    case 'rupi kaur':
+        text = texts["rupi kaur"];
+        submitText(text);
+        break;
     case 'Toni Morrison':
-      // console.log('toni')
       text = texts["Toni Morrison"];
       submitText(text);
       break;
     case 'Maya Angelou':
-      // console.log('maya')
       text = texts["Maya Angelou"];
       submitText(text);
       break;
-    // case 'You Text':
-    //   text = 
-    //     break;
+    case 'Your Text':
+      // get the inputed value and store as text    
+      text = document.getElementById("userInputText").value
+      
+      if(text.length > 0){
+        submitText(text);
+      }
+        break;
   }
 }
 
@@ -66,7 +75,7 @@ const parseText = (str) => {
 
 const generateWordPairs = (arr) => {
   const wordPairs = {};
-
+  
   for (let i = 0; i < arr.length - 1; i++){
     let element = arr[i];
     let nextWord = arr[i + 1];
