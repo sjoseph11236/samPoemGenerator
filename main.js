@@ -11,6 +11,18 @@ let texts = {
   'Toni Morrison': 'Now these cool hands guide what they once caressed; Lips forget what they have kissed. My eyes now pool their light Better the summit to see.',
   'rupi kaur': 'i want to apologize to all the women i have called pretty. before i’ve called them intelligent or brave.i am sorry i made it sound as though something as simple as what you’re born with is the most you have to be proud of when your spirit has crushed mountains from now on i will say things like, you are resilient or, you are extraordinary. not because i don’t think you’re pretty.but because you are so much more than that'
 }
+
+const randomMusic = function() {
+  let arrOfSrcs = ["BestPart.mp3", "If It's Magic.mp3"]
+  let randomIndex = Math.floor(arrOfSrcs.length * Math.random());
+  let iFrameSrc = document.getElementById('music')
+  iFrameSrc.src = arrOfSrcs[randomIndex];
+  console.log("This is iFrameSrc:", iFrameSrc)
+  console.log("this is randomIndex:", randomIndex)
+}
+
+randomMusic();
+
 const disableTextArea = function() {
   let select = document.getElementById('textSelect').selectedIndex;
   let option = document.getElementsByTagName('option')[select].value;
@@ -71,7 +83,6 @@ const parseText = (str) => {
   let arr = str.toLowerCase().replace(/[^a-z\s]/ig, '').split(' ');
   return arr;
 }
-
 
 const generateWordPairs = (arr) => {
   const wordPairs = {};

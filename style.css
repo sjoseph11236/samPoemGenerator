@@ -6,6 +6,9 @@ body,html{
   line-height: 1.8em;
   color:#666;
 }
+#music{
+  display: none;
+}
 
 textarea{
   background:bisque;
@@ -43,8 +46,6 @@ textarea{
   text-align: center;
   padding: 50px 80px;
 }
-
-
 
 .section-light{
   background-color: rgb(233, 186, 129);
@@ -101,12 +102,7 @@ textarea{
       background-attachment: scroll;
   }
 }
-/* .boxed {
-  border: 1px solid green;
-  left: 0px;
-  height: 50px;
-  width: 50px;
-} */
+
 
 #userInputText{
   position: center;
