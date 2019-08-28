@@ -12,7 +12,7 @@ let texts = {
   'rupi kaur': 'i want to apologize to all the women i have called pretty. before i’ve called them intelligent or brave.i am sorry i made it sound as though something as simple as what you’re born with is the most you have to be proud of when your spirit has crushed mountains from now on i will say things like, you are resilient or, you are extraordinary. not because i don’t think you’re pretty.but because you are so much more than that'
 }
 
-const randomMusic = function() {
+ function randomMusic() {
   let arrOfSrcs = ["BestPart.mp3", "If It's Magic.mp3"]
   let randomIndex = Math.floor(arrOfSrcs.length * Math.random());
   let iFrameSrc = document.getElementById('music')
@@ -21,7 +21,7 @@ const randomMusic = function() {
   console.log("this is randomIndex:", randomIndex)
 }
 
-randomMusic();
+randomMusic()
 
 const disableTextArea = function() {
   let select = document.getElementById('textSelect').selectedIndex;
