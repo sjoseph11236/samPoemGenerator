@@ -9,17 +9,17 @@ let newPoemTxt = '';
 let texts = { 
   'Maya Angelou': "You may write me down in history With your bitter, twisted lies, You may trod me in the very dirt But still, like dust, I'll rise. Does my sassiness upset you? Why are you beset with gloom? ’Cause I walk like I've got oil wells Pumping in my living room. Just like moons and like suns, With the certainty of tides, Just like hopes springing high, Still I'll rise. Did you want to see me broken? Bowed head and lowered eyes? Shoulders falling down like tear drops, Weakened by my soulful cries?",
   'Toni Morrison': 'Now these cool hands guide what they once caressed; Lips forget what they have kissed. My eyes now pool their light Better the summit to see.',
-  'rupi kaur': 'i want to apologize to all the women i have called pretty. before i’ve called them intelligent or brave.i am sorry i made it sound as though something as simple as what you’re born with is the most you have to be proud of when your spirit has crushed mountains from now on i will say things like, you are resilient or, you are extraordinary. not because i don’t think you’re pretty.but because you are so much more than that'
+  'rupi kaur': 'i want to apologize to all the women i have called pretty. before i’ve called them intelligent or brave. i am sorry i made it sound as though something as simple as what you’re born with is the most you have to be proud of when your spirit has crushed mountains from now on i will say things like, you are resilient or, you are extraordinary. not because i don’t think you’re pretty.but because you are so much more than that'
 }
 
- function randomMusic() {
-  let arrOfSrcs = ["BestPart.mp3", "If It's Magic.mp3"]
-  let randomIndex = Math.floor(arrOfSrcs.length * Math.random());
-  let iFrameSrc = document.getElementById('music')
-  iFrameSrc.src = arrOfSrcs[randomIndex];
-  console.log("This is iFrameSrc:", iFrameSrc)
-  console.log("this is randomIndex:", randomIndex)
-}
+//  function randomMusic() {
+//   let arrOfSrcs = ["BestPart.mp3", "If It's Magic.mp3"]
+//   let randomIndex = Math.floor(arrOfSrcs.length * Math.random());
+//   let iFrameSrc = document.getElementById('music')
+//   iFrameSrc.src = arrOfSrcs[randomIndex];
+//   console.log("This is iFrameSrc:", iFrameSrc)
+//   console.log("this is randomIndex:", randomIndex)
+// }
 
 randomMusic()
 
