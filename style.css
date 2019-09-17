@@ -6,6 +6,33 @@ body,html{
   line-height: 1.8em;
   color:#666;
 }
+/* Horizontal Icon Bar */
+.horizontal-icon-bar{
+  width:100%; 
+
+  background-color: #B298DC;
+  overflow: auto;
+}
+
+.horizontal-icon-bar > a{
+  float: left;
+  width: 20%;
+  text-align: center;
+  padding: 12px 0; 
+  transition: all 0.3s ease;
+  color:black;
+  font-size: 36px;
+  opacity: .5;
+}
+
+.horizontal-icon-bar a:hover{
+  background-color: whitesmoke;
+}
+
+.horz-active{
+  background-color: #6F2DBD;
+}
+
 #music{
   display: none;
 }
