@@ -51,22 +51,22 @@ textarea{
 }
 
 .mainImageBG{
-  background-image: url('unnamed-23.jpg');
+  background-image: url('./images/sky.jpg');
   min-height: 50%;
 }
 
 .image2{
-  background-image: url("sam.jpg");
+  background-image: url("./images/sam.jpg");
   min-height: 50%;
 }
 
 .image3{
-  background-image: url("unnamed.jpg");
+  background-image: url("./images/toni.jpg");
   min-height: 50%;
 }
 
 .image4{
-  background-image: url("unnamed-9.jpg");
+  background-image: url("./images/love.jpg");
   min-height: 80%;
 }
 
@@ -79,14 +79,14 @@ textarea{
   background-color: rgb(233, 186, 129);
   background-repeat: no-repeat;
   background-size: 100%;
-  background-image: url(floral.jpg);
+  background-image: url(./images/floral.jpg);
   opacity: 0.8;
   color: white;
 }
 
 .section-dark{
   background-color: blanchedalmond;
-  background-image: url(floral.jpg);
+  background-image: url(./images/floral.jpg);
   background-repeat: no-repeat;
   background-size: 100%;
   padding: 120px 80px;
