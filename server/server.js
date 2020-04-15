@@ -1,8 +1,53 @@
 const express = require('express');
+const morgan = require('morgan');
 const path = require('path');
-
+const session = require('express-session');
+const passport = require('passport');
 const app = express();
-const PORT = 3000;
+const { db } = require('./db/');
+const User = require('./db/models/User');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const dbStore = new SequelizeStore({ db });
+const PORT = process.env.PORT || 3000;
+
+dbStore.sync();
+
+passport.serializeUser((user, done) => {
+  try {
+    done(null, user.id);
+  } catch (error) {
+    done(error);
+  }
+});
+
+passport.deserializeUser(async (id, done) => {
+  try {
+    const user = await User.findByPk(id);
+    done(null, user);
+  } catch (err) {
+    done(err);
+  }
+});
+
+// Logging middleware
+app.use(morgan('dev'));
+
+// Parsing middleware
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'a wildly insecure secret',
+  store: dbStore,
+  resave: false,
+  saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use('/auth', require('./auth'));
+app.use('/api/entry', require('./api/entry'));
 
 // Static middleware
 app.use(express.static(path.join(__dirname, '../public')));
@@ -26,4 +71,10 @@ app.use((err, req, res) => {
   res.status(err.status || 500).send(err.message || 'Internal servers error ');
 });
 
-app.listen(PORT, () => console.log(`Serever is listening on PORT: ${PORT}`));
+// app.listen(PORT, () => console.log(`Serever is listening on PORT: ${PORT}`));
+
+db.sync({ force: false })
+  .then(() => {
+    console.log('db synced');
+    app.listen(PORT, () => console.log(`App is listening on PORT ${PORT}`));
+  });

@@ -4,6 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
+    "seed": "node ./bin/seed.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server/server.js"
   },
@@ -19,6 +20,15 @@
   },
   "homepage": "https://github.com/sjoseph11236/samPoemGenerator#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "axios": "^0.19.2",
+    "chalk": "^4.0.0",
+    "connect-session-sequelize": "^6.1.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "morgan": "^1.10.0",
+    "passport": "^0.4.1",
+    "pg": "^8.0.2",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.6"
   }
 }
