@@ -1,0 +1,24 @@
+{
+  "name": "forSam",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sjoseph11236/samPoemGenerator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sjoseph11236/samPoemGenerator/issues"
+  },
+  "homepage": "https://github.com/sjoseph11236/samPoemGenerator#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
